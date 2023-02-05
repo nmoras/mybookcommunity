@@ -3,7 +3,7 @@ const bcrypt = require ( 'bcrypt' );
 const keys = require('./keys')//
 
 //mongoose.connect(`mongodb://${process.env.movieTracker}`,{useNewUrlParser: true});
-mongoose.connect("mongodb://localhost:27017/bookforum",{useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/bookcommunity",{useNewUrlParser: true});
 
 // ``const uri = `mongodb+srv://xyz:xyz@cluster0.jeuob.mongodb.net/trial?retryWrites=true&w=majority`;``
 // const uri = process.env.ATLAS_URI
