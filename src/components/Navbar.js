@@ -17,7 +17,7 @@ const Navbar = () => {
     const [user, setUser] = useState('')
     
     useEffect( () => {
-        if(localStorage.getItem("username") !== null){
+        if(localStorage.getItem("username") != null){
             const id = localStorage.getItem(id)
             setId(id? JSON.parse(id) : '')
             const userName = localStorage.getItem(userName)
