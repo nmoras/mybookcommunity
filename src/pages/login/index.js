@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
-import { Link, Redirect } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import Link from 'next/link';
 export const UserContext = React.createContext();
 
 const LoginPage = () => {
-    // DECLARATIVE FORM OF PROGRAMMING
-    const [ userData, setUserData ] = useState({ name: "", email: localStorage.email, password: "", rememberMe: true });
+    
+    const [ userData, setUserData ] = useState({ name: "", email:"" , password: "", rememberMe: true });
     const [ isLoggedIn, setIsLoggedIn ] = useState( false );
     const [ alertMessage, setAlertMessage ] = useState( { type: "", message: ""} );
     const [ img, setImg ] = useState( '' );
@@ -12,6 +12,11 @@ const LoginPage = () => {
 
     const inputEmail = useRef();
     const inputPassword = useRef();
+
+    useEffect(() => {
+        const emailid = localStorage.getItem(email)
+        setUserData({ name: "", email:emailid, password: "", rememberMe: true })
+    },[])
 
     const handleInputChange = ( e ) => {
         const { id, value } = e.target;
@@ -110,7 +115,7 @@ const LoginPage = () => {
                             &nbsp; 
                             <input type="checkbox" checked={userData.rememberMe} onChange={handleCheckbox} />                        
                             <label class='text-secondary' for='rememberMe'>Remember Me</label> &nbsp;
-                            <Link to="/registration">Need to Register?</Link>
+                            <Link href="/registration">Need to Register?</Link>
                         </form>
                     </div>
                 </div>
